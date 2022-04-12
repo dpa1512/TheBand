@@ -1,0 +1,411 @@
+/* Reset CSS */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    /* thuộc tính chữ không chân cho các thẻ chữ trong toàn bộ bài*/
+    scroll-behavior: smooth;
+    font-family: Arial, Helvetica, sans-serif; /* đầu tiên sẽ đọc font Arial nếu trong máy tính có thì nó sẽ hiện, nếu không có thì chuyển sang cái thứ 2, nếu cái thứ 2 không có thì nó lấy ngẫu nhiên font nào đó thuộc chủng sans-serif */
+    font-size: 15px;
+}
+/* 
+Khi làm 1 website nên đặt ra những câu hỏi sau để bt cách làm từng div 1:
+1. Vị trí
+2. Kích thước (width. hieght)
+3. Màu sắc
+4. Kiểu dáng(kiểu chữ, hình dáng,...)
+ */
+
+
+ /* Common */
+ .clear{
+    clear: both;
+ }
+
+ .text-white{
+     color: #fff !important;
+ }
+
+ .pull-right{
+     float: right !important;
+ }
+
+ .row{
+     margin-left: -8px;
+     margin-right: -8px;
+ }
+
+.col{
+    float: left;
+    padding: 0 8px;
+    font-size: 15px;
+}
+
+.third-col{
+    width: calc(100%/3);
+
+}
+
+.haft-col{
+    width: 50%;
+}
+
+.full-col{
+    width: 100%;
+}
+
+.mt-16{
+    margin-top: 16px;
+}
+
+.text-center{
+    text-align: center !important;
+}
+
+.row::after{
+    content:"";
+    clear: both;
+    display: block;
+}
+
+.btn{
+    text-decoration: none;
+    background-color: #000;
+    color: #fff;
+    padding: 11px;
+    display: inline-block;
+    border: none;
+    text-align: center;
+    /* margin-top: 15px; */
+    /* vì đây là thẻ inline nên nếu muốn margin thì phải cho nó display:block, không thì xét margin ở thẻ trước nó*/
+}
+
+.btn:hover{
+    color: #000;
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+
+ /* Main */
+
+#header{
+    position: fixed;
+    z-index: 1;
+    height: 46px;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* đặt top, left, right để giúp cho thanh header dính sát vào phía trên màn hình, bởi vì khi đặt position nó sẽ nổi lên trên cao và không được mặc định sẵn top-right-left */
+}
+
+ul{
+    list-style-type: none; /* kiểu danh sách, ví dụ dấu chấm trước các ds*/
+}
+
+#nav{
+    display: inline-block;
+}
+
+#nav > li{
+    /* display: block;  hiển thị dạng khối */
+    display: inline-block;  /* hiển thị dạng khối, có chiều dài bằng chính ND. đặt inline-block đúng thẻ nào thì chính nó sẽ tự quay ngang chứ không thừa hưởng inline-block từ thẻ cha*/
+    position: relative;
+}
+
+#nav li a{
+    text-decoration: none;
+    color: #fff;
+    line-height: 46px;
+    padding: 0 24px;
+    display: block; /* hiển thị theo dạng khối, nếu không 
+    đặt width và height hay là nó không nằm trong thẻ 
+    cha nào thì mặc định khối đó tràn hết màn hình, còn nếu nó được nằm trong thẻ cha 
+    và dc st height-width thì nó sẽ có khối có kích thước đó*/
+}
+
+#nav > li > a{
+    text-transform: uppercase;
+}
+
+#nav > li:hover > a,
+#nav .subnav a:hover{ /**/
+    background-color: #ccc;
+    color: #000;
+}
+
+#nav .subnav {
+    display: none; 
+    /* display: none ;không hiển thị display cho cả khối .subnav khi chọn cả khổi thì không cần phải select đến cả li*/
+    position: absolute;
+    background-color: #fff;
+    width: 160px;
+    top: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#nav .subnav li a{
+    color: #000;
+    padding: 0 12px;
+    line-height: 38px;
+}
+
+#nav li:hover .subnav{
+    display: block;  
+    /* di chuột vào thì hiển thị ra menu cấp 2*/
+}
+
+#nav .nav-arrow-down{
+    font-size: 14px;
+}
+#header .mobile-menu-btn,
+#header .search-button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: right;
+    width: 64px;
+    text-align: center;/* căn giữa các phần tử con của nó, vì thẻ i không có nội dung nên không thể đặt center trong nó được */
+ }
+
+#header .icon-menu,
+#header .search-icon{  /*trong bài này có thể sử dụng selector .search-icon cũng được nhưng mà ở line-height phải dùng !important vì line-height độ ưu tiên trong file css của thư viện icon nó cao hơn*/
+    color: #fff;
+    line-height: 46px;
+}
+
+#header .mobile-menu-btn:hover{
+    background-color: #ccc;
+}
+
+#header .mobile-menu-btn:hover .icon-menu{
+    color: #000;
+}
+
+#header .search-button:hover{
+    background-color: #f44336;
+    cursor: pointer;   /* thay đổi hình dạng con trỏ chuột*/
+}
+
+#slider{
+    position: relative;
+    margin-top: 46px;
+    padding-top: 50%;
+    background: url(/assets/img/slider/slider1.jpg) top center / cover no-repeat;
+}
+
+#slider .text{
+    position: absolute;
+    bottom: 48px;
+    text-align: center;
+    color: #fff;
+    padding: 16px 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#slider .text h2{
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#slider .text p{
+    font-size: 15px;
+}
+
+#content .section-common{
+    width: 800px;
+    max-width: 100%;
+    padding: 64px 16px;
+    margin: 0 auto;
+    
+}
+
+#content .section-heading{
+    text-align: center;
+    margin: 10px 0;
+    font-size: 30px;
+    letter-spacing: 5px;
+    font-weight: 100;
+}
+
+#content .section-slogan{
+    text-align: center;
+    margin: 15px 0;
+    font-size: 15px;
+    font-style: italic;
+    opacity: 0.6; /* 1 là đặc, 0-0.9 độ trong suốt giảm dần*/
+}
+
+#content .text-about{
+    text-align: justify; /* căn giữa nma đều sang 2 bên*/
+    line-height: 1.5;
+    margin: 15px 0;
+}
+
+#content .name{
+    padding: 16px 0;
+}
+
+#content .member-name{
+    margin: 15px 0;
+    font-weight: 500;
+}
+
+#content .member-img{
+    width: 154px;
+    height: 154px;
+    border-radius: 4px; /* bo góc cho ảnh không bị nhọn*/
+}
+
+.section-tour{
+    background-color: #000;
+}
+
+.ticket-list{
+    background-color: #fff;
+    font-size: 15px;
+}
+
+.ticket-list li{
+    border-bottom: 1px solid #ccc;
+    padding: 8px 16px;
+}
+
+.ticket-list .sold-out{
+    background-color: #f44336;
+    color: #fff;
+    padding: 2px 7px;
+    margin-left: 16px;
+}
+
+.quantity{
+    float: right;
+    width: 24px;
+    height: 24px;
+    background-color: #000;
+    color: #fff;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 50%;
+    margin-top: -3px;
+}
+
+.buy-ticket{
+    padding: 16px 0;
+}
+
+.name-city{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+.buy-ticket .img{
+    width: 100%;
+    text-align: justify;
+    display: block;/* vì thẻ ìmg là thẻ inline nên phải đển là block thì mới không có khoảng cách giữa các phần tử*/
+}
+
+.buy-ticket .img:hover{
+    opacity: 0.6;
+}
+
+.text-ticket{
+    background-color: #fff;
+    padding: 16px 16px;
+}
+
+.date{
+    margin: 15px 0;
+    opacity: 0.6;
+}
+
+.ticket-content{
+    margin: 15px 0;
+
+}
+
+
+.contact-infor{
+    margin: 47px 0;
+}
+
+.text-infor{
+    font-size: 18px;
+    font-weight: bolder;
+    line-height: 1.4;
+}
+
+.contact-infor i{  /* cach khac: .contact i[class*="ti-"]   */
+    width: 30px;
+    display: inline-block;
+}
+
+.contact-infor a{
+    opacity: 0.8;
+    color: #3085d6;
+}
+
+.contact-infor a:hover{
+    opacity: 1;
+}
+.form-control{
+    padding: 8px;
+    width: 100%;
+    font-size: 15px;
+    border: #ccc solid 1px;
+}
+
+.contact-form{
+    margin-top: 8px;
+}
+
+.submit{
+    margin-top: 16px;
+}
+
+.map-section img{
+    width: 100%; /* % khi kéo màn hình sẽ co theo %*/
+}
+
+#footer{
+    margin: 64px 0;
+    text-align: center;
+}
+
+#footer .footer-content,
+#footer a {
+    font-size: 24px;
+    color: #888;
+}
+
+#footer a:hover{
+    color: #777;
+}
+
+.footer-icons {
+    display: inline-block;
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #777;
+}
+
+.footer-icons :hover{
+    opacity: 0.6;
+}
+
+.over-lay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
